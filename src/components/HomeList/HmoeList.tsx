@@ -5,6 +5,7 @@ type HomeListProps = {
     posts: Post[];
   };
 
+  // function to show excerpt of body
   const truncateText = (text: string, maxLength: number) => {
     if (text.length > maxLength) {
       return text.substring(0, maxLength) + '...';

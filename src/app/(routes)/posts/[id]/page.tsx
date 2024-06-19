@@ -6,6 +6,7 @@ type PageProps = {
 };
 
 const FetchData = async (id: number): Promise<Post> => {
+  // fetch data from api based on id on the url
   const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
   if (!response.ok) {
     throw new Error('Failed to fetch API data');
@@ -16,6 +17,7 @@ const FetchData = async (id: number): Promise<Post> => {
 const PostDetails = async ({ params }: PageProps) => {
   const { id } = params;
 
+  // if data is true will show the data else will show error message
   try {
     const data = await FetchData(id);
     return (

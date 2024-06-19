@@ -3,6 +3,7 @@
 
 import React, { useState } from 'react';
 
+// define props that component expects
 interface FormProps {
   handleSubmit: (title: string, body: string) => void;
 }
@@ -11,15 +12,17 @@ const Form: React.FC<FormProps> = ({ handleSubmit }) => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   
+  
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    // submit the form and clear inputs
     event.preventDefault();
     handleSubmit(title, body);
     setTitle('');
     setBody('');
-    
   };
 
   return (
+    // form and inputs
     <form id="form" method="post" onSubmit={onSubmit} className="max-w-lg mx-auto p-4 bg-white rounded shadow-md">
       <div className="mb-4">
         <label htmlFor="title" className="block text-gray-700 text-sm font-bold mb-2">

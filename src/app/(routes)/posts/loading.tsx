@@ -1,5 +1,5 @@
 
-
+// component for loading state when fetch data
 const Loading = () => {
   return <>
    <div className='flex items-center justify-center h-screen'>

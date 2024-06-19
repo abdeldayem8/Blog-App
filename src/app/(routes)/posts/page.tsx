@@ -1,6 +1,7 @@
 import HomeList from "@/components/HomeList/HmoeList";
 
 const getData = async()=>{
+  // fetch api and get data
   const response = await fetch('https://jsonplaceholder.typicode.com/posts');
   if(!response.ok){
     throw new Error('Failed To Fetch API Data')
