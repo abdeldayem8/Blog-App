@@ -1,7 +1,7 @@
 "use client"; 
 
 import React, { useState } from 'react';
-import Form from '../Form/Form';
+import Form from '@/components/Form/Form';
 
 const FormHandler: React.FC = () => {
   const [successMessage, setSuccessMessage] = useState('');

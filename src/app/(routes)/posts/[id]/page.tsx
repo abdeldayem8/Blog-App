@@ -1,5 +1,4 @@
 import Postdetail from '@/components/Postdetail/Postdetail';
-import React from 'react';
 import { Post } from '@/app/types';
 
 type PageProps = {

@@ -20,7 +20,7 @@ type HomeListProps = {
         <h2 className="text-xl font-bold mb-2">{post.title}</h2>
         <p className="text-gray-700 mb-4">{truncateText(post.body, 100)}</p>
         <Link href={`/posts/${post.id}`} className="text-blue-500 hover:underline">
-         Read more
+        Read more about {post.title}
           </Link>
         </div>
       ))}
