@@ -1,21 +1,36 @@
 import Postdetail from '@/components/Postdetail/Postdetail';
 import React from 'react';
+import { Post } from '@/app/types';
 
 type PageProps = {
-    params: {id:number};
-  }
-
-const PostDetails =  async (props : PageProps) => {
-
-    const {id}= props.params;
-
-   const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-   const data= await response.json();
-  return (
-    <div>
-        <Postdetail post={data}/>
-    </div>
-  );
+  params: { id: number };
 };
 
+const FetchData = async (id: number): Promise<Post> => {
+  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  if (!response.ok) {
+    throw new Error('Failed to fetch API data');
+  }
+  return response.json();
+};
+
+const PostDetails = async ({ params }: PageProps) => {
+  const { id } = params;
+
+  try {
+    const data = await FetchData(id);
+    return (
+      <div>
+        <Postdetail post={data} />
+      </div>
+    );
+  } catch (error) {
+    console.error('Failed to fetch post data:', error);
+    return (
+      <div>
+        <p>Failed to load post.</p>
+      </div>
+    );
+  }
+};
 export default PostDetails;
