@@ -1,4 +1,4 @@
-import Postdetail from '@/app/components/Postdetail/Postdetail';
+import Postdetail from '@/components/Postdetail/Postdetail';
 import React from 'react';
 
 type PageProps = {

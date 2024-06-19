@@ -1,4 +1,4 @@
-import FormHandler from '../components/FormHandler/FormHandler';
+import FormHandler from '@/components/FormHandler/FormHandler';
 
 const CreatePost = () => {
   return (

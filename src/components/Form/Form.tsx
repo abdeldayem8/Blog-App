@@ -4,20 +4,19 @@
 import React, { useState } from 'react';
 
 interface FormProps {
-  handleSubmit: (title: string, body: string, userId: number) => void;
+  handleSubmit: (title: string, body: string) => void;
 }
 
 const Form: React.FC<FormProps> = ({ handleSubmit }) => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
-  const [userId, setUserId] = useState('');
-
+  
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    handleSubmit(title, body, Number(userId));
+    handleSubmit(title, body);
     setTitle('');
     setBody('');
-    setUserId('');
+    
   };
 
   return (
@@ -51,21 +50,7 @@ const Form: React.FC<FormProps> = ({ handleSubmit }) => {
           className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
         />
       </div>
-      <div className="mb-4">
-        <label htmlFor="userId" className="block text-gray-700 text-sm font-bold mb-2">
-          User ID
-        </label>
-        <input
-          type="number"
-          id="userId"
-          name="userId"
-          placeholder="Add User ID"
-          required
-          value={userId}
-          onChange={(e) => setUserId(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
-        />
-      </div>
+      
       <button type="submit" className="w-full bg-indigo-500 text-white py-2 rounded hover:bg-indigo-600">
         Submit
       </button>

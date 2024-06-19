@@ -6,7 +6,7 @@ import Form from '../Form/Form';
 const FormHandler: React.FC = () => {
   const [successMessage, setSuccessMessage] = useState('');
 
-  const handleSubmit = (title: string, body: string,userId:number) => {
+  const handleSubmit = () => {
     // Simulate form submission
     setTimeout(() => {
       setSuccessMessage('Post submitted successfully!');
